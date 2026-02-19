@@ -1,0 +1,84 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-documents-table
+      author: dgorokhov
+      changes:
+        - createTable:
+            tableName: documents
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: number
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: author
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: version
+                  type: BIGINT
+                  defaultValueNumeric: 0
+                  constraints:
+                    nullable: false
+        - createIndex:
+            indexName: idx_documents_status
+            tableName: documents
+            columns:
+              - column:
+                  name: status
+        - createIndex:
+            indexName: idx_documents_author
+            tableName: documents
+            columns:
+              - column:
+                  name: author
+        - createIndex:
+            indexName: idx_documents_created_at
+            tableName: documents
+            columns:
+              - column:
+                  name: created_at
+        - createIndex:
+            indexName: idx_documents_updated_at
+            tableName: documents
+            columns:
+              - column:
+                  name: updated_at
+        - createIndex:
+            indexName: idx_documents_number
+            tableName: documents
+            columns:
+              - column:
+                  name: number

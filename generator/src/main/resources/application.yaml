@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: generator
+
+  main:
+    web-application-type: none
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB:docservice}
+    username: ${POSTGRES_USER:docservice}
+    password: ${POSTGRES_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    root: INFO
+    ru.dgorokhov.docservice: INFO
+
+app:
+  generator:
+    service-url: http://localhost:8080
+    documents-count: 300
+    batch-size: 50
+    submit-interval-ms: 5000
+    approve-interval-ms: 5000

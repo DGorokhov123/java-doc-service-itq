@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: classpath:db/changelog/changes/001-create-documents-table.yaml
+  - include:
+      file: classpath:db/changelog/changes/002-create-document-history-table.yaml
+  - include:
+      file: classpath:db/changelog/changes/003-create-approval-registry-table.yaml

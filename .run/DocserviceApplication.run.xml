@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="DocserviceApplication" type="AmplicodeSpringBootApplication" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="ru.dgorokhov.docservice.DocserviceApplication" />
+    <module name="service" />
+    <option name="profiles">
+      <list>
+        <option value="" />
+      </list>
+    </option>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

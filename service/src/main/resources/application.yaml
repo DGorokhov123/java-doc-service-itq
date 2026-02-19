@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: docservice
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB:docservice}
+    username: ${POSTGRES_USER:docservice}
+    password: ${POSTGRES_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+server:
+  port: ${SERVER_PORT:8080}
+
+logging:
+  level:
+    root: INFO
+    ru.dgorokhov.docservice: DEBUG
