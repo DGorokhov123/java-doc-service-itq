@@ -11,27 +11,31 @@
 - PostgreSQL
 - Maven
 
-## 1. Запуск базы данных
+## Сборка и запуск проекта
 
+1. Клонируйте репозиторий:
+```bash
+git clone https://github.com/DGorokhov123/java-doc-service-itq.git
+cd java-doc-service-itq
+```
+
+2. Запуск базы данных
 ```bash
 docker-compose up -d db
 ```
 
-### 2. Запуск сервиса
-
+3. Запуск сервиса
 ```bash
 ./mvnw spring-boot:run -pl service
 ```
 Сервис запустится на порту `8080`.
 
-### 3. Запуск генератора документов
-
+4. Запуск генератора документов
 ```bash
 ./mvnw spring-boot:run -pl generator
 ```
 
 ## Конфигурация генератора
-
 Основные параметры в `application.yaml`:
 ```yaml
 app:
